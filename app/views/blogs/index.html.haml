@@ -1,0 +1,23 @@
+%h1 List of blogs
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Title
+      %th Author
+      %th Created At
+      %th Actions
+  %tbody
+    - if @blogs.blank?
+      %tr.warning.slanting-center
+        %td{:colspan => 4} No Records to show
+    - else
+      - @blogs.each do |x|
+        %tr
+          %td=x.title
+          %td=x.author
+          %td=x.created_at
+          %td
+            = link_to "View", blog_path(x)
+            = link_to "Edit", edit_blog_path(x)
+
+= link_to 'Create new blog', new_blog_path, :class => 'btn'

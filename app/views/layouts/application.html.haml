@@ -1,0 +1,10 @@
+!!! 5
+%head
+  = render "layouts/partials/stylesheet"
+
+%body{ :id => "pub_app-#{controller.controller_name}", :class => "#{controller.controller_name}" }
+  = render "layouts/partials/navbar"
+  .div45
+  .container
+    = yield
+  = render "layouts/partials/javascript"
